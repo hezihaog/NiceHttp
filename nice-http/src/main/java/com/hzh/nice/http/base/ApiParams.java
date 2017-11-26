@@ -1,13 +1,11 @@
 package com.hzh.nice.http.base;
 
-import android.support.annotation.NonNull;
-import android.support.v4.util.ArrayMap;
 import android.text.TextUtils;
-
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -30,7 +28,7 @@ public class ApiParams {
     public synchronized ApiParams add(String key, String value) {
         if (!TextUtils.isEmpty(key) && value != null) {
             if (this.params == null) {
-                this.params = new ArrayMap<String, ArrayList<String>>();
+                this.params = new HashMap<String, ArrayList<String>>();
             }
             ArrayList<String> oldValues = this.params.get(key);
             if (oldValues == null) {
@@ -51,7 +49,7 @@ public class ApiParams {
     public synchronized ApiParams add(String key, ArrayList<String> values) {
         if (!TextUtils.isEmpty(key) && values != null) {
             if (this.params == null) {
-                this.params = new ArrayMap<String, ArrayList<String>>();
+                this.params = new HashMap<String, ArrayList<String>>();
             }
             ArrayList<String> oldValues = this.params.get(key);
             if (oldValues == null) {
@@ -73,7 +71,7 @@ public class ApiParams {
     public synchronized ApiParams addFile(String key, File file) {
         if (!TextUtils.isEmpty(key) && file != null) {
             if (this.files == null) {
-                this.files = new ArrayMap<String, ArrayList<File>>();
+                this.files = new HashMap<String, ArrayList<File>>();
             }
             ArrayList<File> oldFiles = this.files.get(key);
             if (oldFiles == null) {
@@ -92,10 +90,10 @@ public class ApiParams {
      * @param files
      * @return
      */
-    public synchronized ApiParams addFile(@NonNull String key, Collection<File> files) {
+    public synchronized ApiParams addFile(String key, Collection<File> files) {
         if (!TextUtils.isEmpty(key) && files != null) {
             if (this.files == null) {
-                this.files = new ArrayMap<String, ArrayList<File>>();
+                this.files = new HashMap<String, ArrayList<File>>();
             }
             ArrayList<File> oldFiles = this.files.get(key);
             if (oldFiles == null) {

@@ -2,10 +2,10 @@ package com.hzh.nice.http.sample;
 
 import android.app.Application;
 
+import com.hzh.logger.L;
 import com.hzh.nice.http.NiceApiClient;
 import com.hzh.nice.http.NiceHttpConfig;
 import com.hzh.nice.http.impl.ApiByOkHttp;
-import com.hzh.nice.http.util.LogUtil;
 
 /**
  * @package com.hzh.nice.http.sample
@@ -23,6 +23,6 @@ public class AppContext extends Application {
         //初始化
         NiceApiClient.init(getApplicationContext(),
                 NiceHttpConfig.newBuild(new ApiByOkHttp(getApplicationContext())).setDebug(BuildConfig.DEBUG).build());
-        LogUtil.getInstance().setDebugEnable(BuildConfig.DEBUG);
+        L.configAllowLog(BuildConfig.DEBUG);
     }
 }

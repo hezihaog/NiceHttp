@@ -20,9 +20,7 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:appcompat-v7:26.+'
-    debugCompile 'com.apkfuns.logutils:library:1.5.1.1'
-    releaseCompile 'com.apkfuns.logutils:library:1.5.1.1'
     compile 'com.squareup.okhttp3:okhttp:3.7.0'
     compile 'com.google.code.gson:gson:2.8.2'
+    compile 'com.hzh:liba-logger:1.0.0'
 }

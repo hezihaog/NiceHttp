@@ -1,9 +1,9 @@
 package com.hzh.nice.http.adapter;
 
 
+import com.hzh.logger.L;
 import com.hzh.nice.http.callback.ApiCallback;
 import com.hzh.nice.http.inter.Result;
-import com.hzh.nice.http.util.LogUtil;
 
 /**
  * 网络请求回调接口适配器
@@ -24,14 +24,14 @@ public class ApiCallbackAdapter implements ApiCallback {
 
     @Override
     public void onApiFailure(Throwable t, int errorNo, String strMsg, String tag) {
-        LogUtil.i("网络请求错误");
+        L.i("网络请求错误");
         t.printStackTrace();
         onApiError(tag);
     }
 
     @Override
     public void onParseError(String tag) {
-        LogUtil.i("数据解析错误");
+        L.i("数据解析错误");
         onApiError(tag);
     }
 

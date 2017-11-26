@@ -1,9 +1,9 @@
 package com.hzh.nice.http.base;
 
 
+import com.hzh.logger.L;
 import com.hzh.nice.http.AppException;
 import com.hzh.nice.http.inter.Result;
-import com.hzh.nice.http.util.LogUtil;
 import com.hzh.nice.http.util.ParseFactory;
 
 /**
@@ -52,15 +52,15 @@ public class ApiUtil {
 
     public static void printRequest(String url, ApiParams params) {
         if (isDebug) {
-            LogUtil.d(url);
-            LogUtil.d(params);
+            L.d(url);
+            L.d(params);
         }
     }
 
     public static void printResult(String clazzName, String result) {
         if (isDebug) {
-            LogUtil.d(clazzName);
-            LogUtil.json(result);
+            L.d(clazzName);
+            L.json(result);
         }
     }
 }
