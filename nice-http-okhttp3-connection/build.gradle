@@ -20,6 +20,6 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile project(':nice-http')
     compile 'com.squareup.okhttp3:okhttp:3.7.0'
+    compile 'com.hzh:nice-http:1.0.1'
 }
