@@ -45,6 +45,15 @@ public class ApiByOkHttp implements Api {
                 .readTimeout(30, TimeUnit.SECONDS).build();
     }
 
+    /**
+     * 提供OkHttpClient
+     *
+     * @return okHttpClient实例
+     */
+    public OkHttpClient getOkHttpClient() {
+        return client;
+    }
+
     @Override
     public Result getSync(String url, ApiParams params, Class clazz) throws Exception {
         ApiUtil.printRequest(url, params);
