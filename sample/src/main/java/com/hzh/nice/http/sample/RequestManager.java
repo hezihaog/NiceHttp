@@ -4,7 +4,7 @@ import com.hzh.nice.http.NiceApiClient;
 import com.hzh.nice.http.base.ApiParams;
 import com.hzh.nice.http.base.ApiUtil;
 import com.hzh.nice.http.callback.ApiCallback;
-import com.hzh.nice.http.sample.activity.SearchEntity;
+import com.hzh.nice.http.sample.bean.SearchEntity;
 import com.hzh.nice.http.sample.util.Const;
 
 /**

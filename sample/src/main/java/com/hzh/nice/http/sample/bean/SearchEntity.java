@@ -1,4 +1,4 @@
-package com.hzh.nice.http.sample.activity;
+package com.hzh.nice.http.sample.bean;
 
 import com.hzh.nice.http.inter.Result;
 

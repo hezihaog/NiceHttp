@@ -9,6 +9,7 @@ import com.hzh.logger.L;
 import com.hzh.nice.http.NiceApiClient;
 import com.hzh.nice.http.base.ApiParams;
 import com.hzh.nice.http.sample.R;
+import com.hzh.nice.http.sample.bean.SearchEntity;
 import com.hzh.nice.http.sample.util.Const;
 
 public class MainActivity extends AppCompatActivity {
