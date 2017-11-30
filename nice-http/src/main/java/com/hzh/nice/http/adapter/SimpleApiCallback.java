@@ -1,8 +1,10 @@
 package com.hzh.nice.http.adapter;
 
 
-import com.hzh.logger.L;
+//import com.hzh.logger.L;
+import com.hzh.nice.http.NiceApiClient;
 import com.hzh.nice.http.callback.ApiCallback;
+import com.hzh.nice.http.inter.Printer;
 import com.hzh.nice.http.inter.Result;
 
 /**
@@ -24,14 +26,20 @@ public class SimpleApiCallback implements ApiCallback {
 
     @Override
     public void onApiFailure(Throwable t, int errorNo, String strMsg, String tag) {
-        L.e("网络请求错误");
-        onApiError(tag);
+        Printer printer = NiceApiClient.getInstance().getPrinter();
+        if (printer != null) {
+            printer.e("网络请求错误");
+            onApiError(tag);
+        }
     }
 
     @Override
     public void onParseError(String tag) {
-        L.e("数据解析错误");
-        onApiError(tag);
+        Printer printer = NiceApiClient.getInstance().getPrinter();
+        if (printer != null) {
+            printer.e("数据解析错误");
+            onApiError(tag);
+        }
     }
 
     protected void onApiError(String tag) {

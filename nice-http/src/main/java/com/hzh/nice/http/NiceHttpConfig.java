@@ -1,7 +1,9 @@
 package com.hzh.nice.http;
 
 import com.hzh.nice.http.base.Api;
+import com.hzh.nice.http.iml.NoOperationPrinter;
 import com.hzh.nice.http.inter.Parser;
+import com.hzh.nice.http.inter.Printer;
 
 /**
  * Package: com.hzh.nice.http
@@ -13,13 +15,20 @@ import com.hzh.nice.http.inter.Parser;
  */
 
 public class NiceHttpConfig {
+    //Api实现类
     private Api api;
+    //是否为debug模式
     private boolean isDebug = false;
+    //json反序列化解析器
     private Parser parser;
+    //Log输出器
+    private Printer printer;
 
     private NiceHttpConfig(Builder builder) {
         this.api = builder.api;
         this.isDebug = builder.isDebug;
+        this.parser = builder.getParser();
+        this.printer = builder.printer;
     }
 
     public static Builder newBuild(Api api, Parser parser) {
@@ -38,10 +47,15 @@ public class NiceHttpConfig {
         return parser;
     }
 
+    public Printer getPrinter() {
+        return printer;
+    }
+
     public static class Builder {
         private Api api;
         private Parser parser;
         private boolean isDebug = false;
+        private Printer printer = new NoOperationPrinter();
 
         private Builder(Api api, Parser parser) {
             this.api = api;
@@ -55,6 +69,16 @@ public class NiceHttpConfig {
 
         public boolean isDebug() {
             return isDebug;
+        }
+
+        /**
+         * Log打印实现类，使用者使用该方法去转调自己的Log框架
+         *
+         * @param printer 打印接口
+         */
+        public Builder customPrinter(Printer printer) {
+            this.printer = printer;
+            return this;
         }
 
         public Api getApi() {
