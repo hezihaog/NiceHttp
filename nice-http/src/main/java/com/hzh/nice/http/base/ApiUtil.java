@@ -9,19 +9,10 @@ import com.hzh.nice.http.util.ParseFactory;
 
 /**
  * Created by XuYang on 2016/12/28.
+ * Api工具类
  */
 
 public class ApiUtil {
-    private static boolean isDebug = false;
-
-    public static boolean isDebug() {
-        return isDebug;
-    }
-
-    public static void setIsDebug(boolean isDebug) {
-        ApiUtil.isDebug = isDebug;
-    }
-
     /**
      * 获取代码执行所在方法名称
      *
@@ -61,16 +52,12 @@ public class ApiUtil {
     }
 
     public static void printRequest(String url, ApiParams params) {
-        if (isDebug) {
-            L.d(url);
-            L.d(params);
-        }
+        L.d(url);
+        L.d(params);
     }
 
     public static void printResult(String clazzName, String result) {
-        if (isDebug) {
-            L.d(clazzName);
-            L.json(result);
-        }
+        L.d(clazzName);
+        L.json(result);
     }
 }

@@ -2,8 +2,8 @@ package com.hzh.nice.http;
 
 import android.content.Context;
 
+import com.hzh.logger.L;
 import com.hzh.nice.http.base.Api;
-import com.hzh.nice.http.base.ApiUtil;
 
 
 /**
@@ -44,7 +44,7 @@ public class NiceApiClient {
         NiceApiClient instance = Singleton.instance;
         instance.context = context;
         instance.api = config.getApi();
-        ApiUtil.setIsDebug(config.isDebug());
+        L.configAllowLog(config.isDebug());
         isInited = true;
         return instance;
     }

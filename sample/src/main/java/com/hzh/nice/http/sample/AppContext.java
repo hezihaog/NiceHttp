@@ -3,7 +3,6 @@ package com.hzh.nice.http.sample;
 import android.app.Application;
 
 import com.google.gson.Gson;
-import com.hzh.logger.L;
 import com.hzh.nice.http.NiceApiClient;
 import com.hzh.nice.http.NiceHttpConfig;
 import com.hzh.nice.http.inter.Parser;
@@ -28,7 +27,6 @@ public class AppContext extends Application {
         NiceApiClient.init(getApplicationContext(),
                 NiceHttpConfig.newBuild(new ApiByOkHttp(getApplicationContext(), parser),
                         parser).setDebug(BuildConfig.DEBUG).build());
-        L.configAllowLog(BuildConfig.DEBUG);
     }
 
     /**
