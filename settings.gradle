@@ -1,1 +1,1 @@
-include ':sample', ':nice-http'
+include ':sample', ':nice-http', ':nice-http-okhttp3-connection'

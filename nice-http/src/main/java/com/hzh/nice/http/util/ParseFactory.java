@@ -1,8 +1,7 @@
 package com.hzh.nice.http.util;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonSyntaxException;
 import com.hzh.nice.http.AppException;
+import com.hzh.nice.http.inter.Parser;
 import com.hzh.nice.http.inter.Result;
 
 /**
@@ -31,15 +30,13 @@ public class ParseFactory {
      *
      * @param json  要解析的json
      * @param clazz 转换出来的bean对象
-     * @param <T>
-     * @return
      * @throws AppException
      */
-    public <T extends Result> T parse(String json, Class<T> clazz) throws AppException {
+    public <T extends Result> T parse(Parser parser, String json, Class<T> clazz) throws AppException {
         T res;
         try {
-            res = new Gson().fromJson(json, clazz);
-        } catch (JsonSyntaxException e) {
+            res = parser.parse(json, clazz);
+        } catch (Exception e) {
             e.printStackTrace();
             throw AppException.json(e);
         }

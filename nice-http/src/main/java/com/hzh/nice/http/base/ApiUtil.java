@@ -3,6 +3,7 @@ package com.hzh.nice.http.base;
 
 import com.hzh.logger.L;
 import com.hzh.nice.http.AppException;
+import com.hzh.nice.http.inter.Parser;
 import com.hzh.nice.http.inter.Result;
 import com.hzh.nice.http.util.ParseFactory;
 
@@ -40,10 +41,19 @@ public class ApiUtil {
         return methodName;
     }
 
-    public static Result parseResult(Class clazz, String result) throws AppException {
+    /**
+     * 解析json
+     *
+     * @param parser 解析器
+     * @param clazz  解析目标bean
+     * @param json   json字符串
+     * @return 数据bean
+     * @throws AppException 可能解析失败产生的异常
+     */
+    public static Result parseResult(Parser parser, Class clazz, String json) throws AppException {
         Result res;
         try {
-            res = ParseFactory.getInstance().parse(result, clazz);
+            res = ParseFactory.getInstance().parse(parser, json, clazz);
         } catch (Exception e) {
             throw AppException.json(e);
         }

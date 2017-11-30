@@ -1,6 +1,7 @@
 package com.hzh.nice.http;
 
 import com.hzh.nice.http.base.Api;
+import com.hzh.nice.http.inter.Parser;
 
 /**
  * Package: com.hzh.nice.http
@@ -14,14 +15,15 @@ import com.hzh.nice.http.base.Api;
 public class NiceHttpConfig {
     private Api api;
     private boolean isDebug = false;
+    private Parser parser;
 
     private NiceHttpConfig(Builder builder) {
         this.api = builder.api;
         this.isDebug = builder.isDebug;
     }
 
-    public static Builder newBuild(Api api) {
-        return new Builder(api);
+    public static Builder newBuild(Api api, Parser parser) {
+        return new Builder(api, parser);
     }
 
     public Api getApi() {
@@ -32,12 +34,18 @@ public class NiceHttpConfig {
         return isDebug;
     }
 
+    public Parser getParser() {
+        return parser;
+    }
+
     public static class Builder {
         private Api api;
+        private Parser parser;
         private boolean isDebug = false;
 
-        private Builder(Api api) {
+        private Builder(Api api, Parser parser) {
             this.api = api;
+            this.parser = parser;
         }
 
         public Builder setDebug(boolean debug) {
@@ -51,6 +59,10 @@ public class NiceHttpConfig {
 
         public Api getApi() {
             return api;
+        }
+
+        public Parser getParser() {
+            return parser;
         }
 
         public NiceHttpConfig build() {
