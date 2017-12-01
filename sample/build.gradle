@@ -41,12 +41,14 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.hzh:liba-logger:1.0.0'
     //gson
     compile 'com.google.code.gson:gson:2.8.2'
     //fastJson
     compile 'com.alibaba:fastjson:1.2.9'
+    //log打印库
+    compile 'com.hzh:liba-logger:1.0.0'
+    //okhttp3实现层
+    compile 'com.hzh:nice-http-okhttp3-connection:1.0.2'
     testCompile 'junit:junit:4.12'
     compile project(':nice-http')
-    compile project(':nice-http-okhttp3-connection')
 }
