@@ -8,6 +8,7 @@ import com.google.gson.Gson;
 import com.hzh.logger.L;
 import com.hzh.nice.http.NiceApiClient;
 import com.hzh.nice.http.NiceHttpConfig;
+import com.hzh.nice.http.base.Api;
 import com.hzh.nice.http.base.ApiParams;
 import com.hzh.nice.http.inter.Parser;
 import com.hzh.nice.http.inter.Printer;
@@ -36,10 +37,14 @@ public class AppContext extends Application {
         //jackson
         Parser jacksonParser = new JacksonParser();
 
+        //http实现层
+        Api httpIml = new ApiByOkHttp(getApplicationContext());
+        //Api httpIml = new ApiByVolley(getApplicationContext());
+
         //初始化
         NiceApiClient.init(getApplicationContext(),
                 NiceHttpConfig
-                        .newBuild(new ApiByOkHttp(getApplicationContext()), jacksonParser)
+                        .newBuild(httpIml, jacksonParser)
                         .customPrinter(new MyLogPrinter())
                         .setDebug(BuildConfig.DEBUG).build());
     }
