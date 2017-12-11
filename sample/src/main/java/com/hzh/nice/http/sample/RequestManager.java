@@ -17,10 +17,6 @@ import com.hzh.nice.http.sample.util.Const;
  */
 
 public class RequestManager {
-    private static StackTraceElement[] getStackTrace() {
-        return Thread.currentThread().getStackTrace();
-    }
-
     public static void search(ApiCallback callback, String type, String count, String page) {
         ApiParams params = new ApiParams();
         params.add("count", count);
@@ -28,6 +24,6 @@ public class RequestManager {
         NiceApiClient.getInstance().getApi()
                 .get(callback, Const.Api.domain
                         + Const.Api.search
-                        + "/" + type, params, SearchEntity.class, ApiUtil.createTag(getStackTrace()));
+                        + "/" + type, params, SearchEntity.class, ApiUtil.createTag(Thread.currentThread().getStackTrace()));
     }
 }
